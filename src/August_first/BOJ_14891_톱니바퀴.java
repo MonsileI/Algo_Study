@@ -21,8 +21,6 @@ public class BOJ_14891_톱니바퀴 {
 				wheel[i][j] = str.charAt(j) -'0';
 			}
 		}
-	
-
 		
 		int T = Integer.parseInt(br.readLine());
 	
