@@ -14,7 +14,7 @@ class Shark {
 public class bj_17144_낚시왕 {
 	
 	
-	private static int r, c, m;
+	private static int r, c, m; //맵 row col 상어수
 	private static int[][] map;
 	
 	private static int[] dx = {0, -1, 1, 0, 0}; //0, 상, 하, 우, 좌
@@ -34,7 +34,7 @@ public class bj_17144_낚시왕 {
 		c = Integer.parseInt(st.nextToken()); //열
 		m = Integer.parseInt(st.nextToken()); //상어 수
 		
-		if (m == 0) { //상어가 없으면 0 출력
+		if (m == 0) { //상어가 없으면 0 출력(없는 경우의 수도 있더라고..)
 			System.out.println(0);
 			return;
 		}
@@ -73,7 +73,7 @@ public class bj_17144_낚시왕 {
 			}
 			//맵에 상어 위치 넣어주기(사이즈별로 )
 			map[shark.x][shark.y] = shark.size;
-			sharks.put(shark.size, shark); //맵에넣기
+			sharks.put(shark.size, shark); //맵에넣기 (자료구조)
 		}
 		
 		for (int y=1; y<=c; y++) {
@@ -89,11 +89,11 @@ public class bj_17144_낚시왕 {
 	private static void fishShark(int y) {
 		
 		for (int x=1; x<=r; x++) { //인덱스 조정
-			if (map[x][y] != 0) { //상어가 있을겨우
+			if (map[x][y] != 0) { //상어가 있을경우
 				result += map[x][y]; //낚시 ㄱ
 				sharks.remove(map[x][y]);
 				map[x][y] = 0;
-				return;
+				return; //잡으면 리턴해주기
 			}
 		}
 		
@@ -104,19 +104,19 @@ public class bj_17144_낚시왕 {
 		//템프 맵
 		int[][] temp = new int[r+1][c+1];
 		
-		Queue<Integer> failer = new LinkedList<Integer>();
+		Queue<Integer> failer = new LinkedList<Integer>(); //가장 큰 상어가 다먹음
 		
 		for (Integer key : sharks.keySet()) { //상어정보
 			
 			//hashmap에 들어있는 샤크 한개씩 정보를 가져온다.
 			Shark shark = sharks.get(key);
 			
-			map[shark.x][shark.y] = 0;
+			map[shark.x][shark.y] = 0; //초기화
 			
 			for (int i=0; i<shark.speed; i++) {
 				//머리 모양이 1이면(위) 부딪히고 돌아오는 거 계산
 				if (shark.dir == 1 && shark.x == 1) {
-					shark.dir = 2;
+					shark.dir = 2; //머리 모양 바꾸기
 				} 
 				//아래(마지막 인덱스 값이면)
 				else if (shark.dir == 2 && shark.x == r) {
@@ -155,7 +155,7 @@ public class bj_17144_낚시왕 {
 		
 		for (Integer key : sharks.keySet()) {
 			Shark shark = sharks.get(key);
-			map[shark.x][shark.y]= temp[shark.x][shark.y]; 
+			map[shark.x][shark.y]= temp[shark.x][shark.y];  //갱신
 		}
 		
 	}
