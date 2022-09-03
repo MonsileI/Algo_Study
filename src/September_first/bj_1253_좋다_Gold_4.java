@@ -26,7 +26,9 @@ public class bj_1253_좋다_Gold_4 {
 		int start = 0;
 		int end = N-1;
 		int maxValue = arr[end];
+		
 		while(start<end) {
+			
 			int sum = arr[start] + arr[end];
 			
 			
