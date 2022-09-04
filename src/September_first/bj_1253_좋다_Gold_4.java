@@ -7,6 +7,7 @@ public class bj_1253_좋다_Gold_4 {
 	static int[]arr;
 	static int answer;
 	static void input() throws Exception{
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine());
 		arr = new int[N];
@@ -20,35 +21,40 @@ public class bj_1253_좋다_Gold_4 {
 	}
 	
 	static void calc() {
-		
-		Arrays.sort(arr);
+		Arrays.sort(arr);	
+		for(int i=0;i<N;i++) if(possible(i)) answer++;
+
+	}
+	
+	static boolean possible(int idx) {
 		
 		int start = 0;
 		int end = N-1;
-		int maxValue = arr[end];
+		int target = arr[idx];
 		
-		while(start<end) {
+		while(true) {
+			
+			if(idx==start) start++;
+			else if(idx==end) end--;
+			
+			if(end<=start) return false;
 			
 			int sum = arr[start] + arr[end];
 			
+			if(sum<target) start++;
+			else if(sum>target) end--;
+			else if(sum==target) return true;
 			
-			if(sum>maxValue) {
-				end--;
-			}else if(sum==maxValue) {
-				answer += 2;
-				maxValue = arr[--end];
-				
-			}else {
-				start++;
-			}
 			
 		}
-		
-		
+
 	}
+	
 	public static void main(String[] args) throws Exception {
+		
 		input();
 		calc();
 		output();
+		
 	}
 }
