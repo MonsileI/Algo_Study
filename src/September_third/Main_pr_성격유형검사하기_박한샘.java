@@ -19,7 +19,7 @@ import java.io.*;
 public class Main_pr_성격유형검사하기_박한샘 {
 	public static void main(String[] args) {
 		
-		Solution solution = new Solution();
+		Solution_성격유형검사하기 solution = new Solution_성격유형검사하기();
 		String []survey = {"AN", "CF", "MJ", "RT", "NA"};
 		int [] choices = {5, 3, 2, 7, 5};
 		String answer = solution.solution(survey, choices);
@@ -27,7 +27,7 @@ public class Main_pr_성격유형검사하기_박한샘 {
 	}
 }
 
-class Solution {
+class Solution_성격유형검사하기 {
 	
 	Map<String, Integer> map = new HashMap<>();
 	
