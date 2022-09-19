@@ -16,7 +16,7 @@ import java.io.*;
  * */
 
 
-public class Main_pr_성격유형검사하기_박한샘 {
+public class Solution_pr_lv1_성격유형검사하기_박한샘 {
 	public static void main(String[] args) {
 		
 		Solution_성격유형검사하기 solution = new Solution_성격유형검사하기();

@@ -1,7 +1,7 @@
 package September_third;
 import java.util.*;
 
-public class Main_pr_주차요금계산 {
+public class Solution_pr_lv2_주차요금계산_박한샘 {
 
 	public static void main(String[] args) {
 		Solution_주차요금계산 solution = new Solution_주차요금계산();

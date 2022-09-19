@@ -71,7 +71,7 @@ class Solution_두큐합같게만들기 {
     }
 }
 
-public class Main_pr_두큐합같게만들기 {
+public class Solution_pr_lv2_두큐합같게만들기 {
 
 	public static void main(String[] args) {
 		
