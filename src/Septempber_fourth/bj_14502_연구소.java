@@ -11,6 +11,7 @@ public class bj_14502_연구소 {
 	static List<int[]> vList = new ArrayList<>();
 	static int[][]tmp;
 	static int answer;
+	static int cnt;
 	static int [][]move = {{-1,0},{0,1},{1,0},{0,-1}};
 	
 	public static void main(String[] args) throws Exception {
@@ -25,7 +26,10 @@ public class bj_14502_연구소 {
 			st = new StringTokenizer(br.readLine()," ");
 			for(int j=0;j<M;j++) {
 				map[i][j] = Integer.parseInt(st.nextToken());
-				if(map[i][j]==0) zList.add(new int[] {i,j});
+				if(map[i][j]==0) {
+					zList.add(new int[] {i,j});
+					cnt++;
+				}
 				if(map[i][j]==2) vList.add(new int[] {i,j});
 			}
 		}
@@ -47,13 +51,21 @@ public class bj_14502_연구소 {
 				m[i][j] = map[i][j];
 			}
 		}
+		int check = cnt; //현재 빈칸인 영역
+		boolean[][]visited = new boolean[N][M];
 		
 		m[tmp[0][0]][tmp[0][1]] = 1;
 		m[tmp[1][0]][tmp[1][1]] = 1;
 		m[tmp[2][0]][tmp[2][1]] = 1;
+		
 		Queue<int[]> q = new ArrayDeque<>();
 		
-		for(int []i : vList) q.offer(new int [] {i[0],i[1]});
+		for(int []i : vList) {
+		
+			q.offer(new int [] {i[0],i[1]});
+			visited[i[0]][i[1]] = true;
+		}
+		
 		
 		
 		while(!q.isEmpty()) {
@@ -67,12 +79,16 @@ public class bj_14502_연구소 {
 				int nj = j + move[d][1];
 				
 				if(ni<0||nj<0||N-1<ni||M-1<nj) continue;
-				if(m[ni][nj]!=0) continue;
-				
-			}
+				if(m[ni][nj]==1) continue;
+				if(m[ni][nj]==0) check--;
+				q.offer(new int[] {ni,nj});
+				visited[ni][nj] = true;
+				}
 			
 			
 		}
+		
+		answer = Math.max(answer, check);
 		
 		
 		

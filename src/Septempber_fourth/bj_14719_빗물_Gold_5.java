@@ -30,6 +30,7 @@ public class bj_14719_빗물_Gold_5 {
 			}
 		}
 		
+		for(int [] i : map)System.out.println(Arrays.toString(i));
 
 		
 		
