@@ -3,7 +3,7 @@ package 삼성역량평가;
 import java.io.*;
 import java.util.*;
 
-public class bj_17471_게리맨더링_Gold_4 {
+public class bj_17471_게리맨더링 {
 	
 	static int N;
 	static boolean [][]link;
