@@ -24,6 +24,7 @@ public class dijikstraListTest {
 		
 		
 		
+		
 	}
 	
 	public static void main(String[] args) throws Exception{
@@ -84,5 +85,6 @@ public class dijikstraListTest {
 		}
 		System.out.println(Arrays.toString(dist));
 		System.out.println(dist[N-1]);
+		
 	}
 }

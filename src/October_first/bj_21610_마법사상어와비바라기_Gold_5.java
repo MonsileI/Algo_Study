@@ -3,7 +3,7 @@ package October_first;
 import java.io.*;
 import java.util.*;
 
-public class test {
+public class bj_21610_마법사상어와비바라기_Gold_5 {
 
 	static int[][]move = {{-1,0},{0,1},{1,0},{0,-1}};
 	
