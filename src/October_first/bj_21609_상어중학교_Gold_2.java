@@ -36,7 +36,7 @@ public class bj_21609_상어중학교_Gold_2 {
 				}
 				return -(count - o.count);
 			}
-	
+			return 0;
 		}
 	
 	/*
@@ -61,6 +61,8 @@ public class bj_21609_상어중학교_Gold_2 {
 	 
 	 
 	 */
+		
+	}
 	
 	static void input()throws Exception{
 		
@@ -95,10 +97,12 @@ public class bj_21609_상어중학교_Gold_2 {
 		
 		
 	}
+
+	
 	public static void main(String[] args) throws Exception {
 		input();
 		calc();
 		output();
 	}
-
+	
 }

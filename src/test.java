@@ -3,63 +3,46 @@ import java.util.*;
 
 public class test {
 
-	static int cnt;
-	
+
 	public static void main(String[] args) throws Exception {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		int N = Integer.parseInt(br.readLine());
+		StringTokenizer st = new StringTokenizer(br.readLine()," ");
 		
-		int[][]info = new int[N][N];
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
 		
-		for(int i=0;i<N;i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine()," ");
-			for(int j=0;j<N;j++) {
-				info[i][j] = Integer.parseInt(st.nextToken());
+		boolean[][]arr = new boolean[N+1][N+1];
+		
+		for(int i=0;i<M;i++) {
+			st = new StringTokenizer(br.readLine());
+			int from = Integer.parseInt(st.nextToken());
+			int to = Integer.parseInt(st.nextToken());
+			arr[from][to] = true;
+		}
+		
+		for(int k=1;k<N+1;k++) {
+			for(int i=1;i<N+1;i++) {
+				for(int j=1;j<N+1;j++) {
+					arr[i][j] = arr[i][j] || (arr[i][k] && arr[k][j]);
+				}
 			}
 		}
 		
-		int[] dist = new int[N];
-		int INF = Integer.MAX_VALUE;
-		Arrays.fill(dist, INF);
-		int start = 0;
-		int end = N-1;
-		dist[start] = 0;
 		
-		int idx, min;
-		boolean[]visited = new boolean[N];
-		for(int i=0;i<N;i++) {
-			
-			idx = -1;
-			min = INF;
-			
-			for(int j=0;j<N;j++) {
-				
-				if(!visited[j] && min > dist[j]) {
-					idx =j;
-					min = dist[j];
-				}
-				
+		int answer = 0;
+		
+		outerLoop:
+		for(int i=1;i<N+1;i++) {
+			for(int j=1;j<N+1;j++) {
+				if(i==j) continue;
+				if(!arr[i][j] && !arr[j][i]) continue outerLoop; 
 			}
-			
-			if(idx==-1) break;
-			if(visited[end]) break;
-			
-			visited[idx] = true;
-			
-			for(int j=0;j<N;j++) {
-				
-				if(!visited[j] && info[idx][j] !=0 && dist[j] > info[idx][j] + dist[idx]) {
-					dist[j] = info[idx][j] + dist[idx];
-				}
-				
-			}
-					
+			answer++;
 		}
 		
-		System.out.println(Arrays.toString(dist));
-		System.out.println(dist[end]);
 		
+		System.out.println(answer);
 	}
 }

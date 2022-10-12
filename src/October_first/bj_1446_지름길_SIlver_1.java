@@ -20,7 +20,8 @@ public class bj_1446_지름길_SIlver_1 {
 		@Override
 		public int compareTo(Node o) {
 			
-			return weight - o.weight;
+			if(from == o.from) return to - o.to;
+			return from - o.from;
 		}
 		
 
@@ -50,45 +51,41 @@ public class bj_1446_지름길_SIlver_1 {
 			int to = Integer.parseInt(st.nextToken());
 			int weight = Integer.parseInt(st.nextToken());
 			
+			//역주행 x
 			if(to > D) continue;
+			//지름길로 가는것보다 그냥 가는게 빠르면, 걸러줌
+			if(to- from <= weight) continue;
 			
 			list.add(new Node(from,to,weight));
 			
 		}
 		
-		
-		int INF = Integer.MAX_VALUE;
-		Arrays.fill(dist, INF);
+		Collections.sort(list);
+	
+		Arrays.fill(dist, 10001);
 		dist[0] = 0;
-		
-		
-		PriorityQueue<Node> pq = new PriorityQueue<>();
-		
-		int min = INF;
-		for(int i=0;i<list.size();i++) {
-			Node node = list.get(i);
+
+		int idx =0; 
+		int range =0;
+		while(range < D) {
 			
-			if(node.from==0) {
-				if(min < node.weight) {
-					min = node.weight;
-					pq.offer(new Node(0,node.to,node.weight));
-					
+			if(idx< list.size()) {
+				Node node = list.get(idx);
+				if(node.from == range) {
+					dist[node.to] = Math.min(dist[range]+ node.weight, dist[node.to]);
+					idx++;
+				}else {
+					dist[range+1] = Math.min(dist[range+1], dist[range]+1);
+					range++;
 				}
+			}else {
+				dist[range+1] = Math.min(dist[range+1], dist[range]+1);
+				range++;
 			}
+
 		}
 		
-		while(!pq.isEmpty()) {
-			
-			Node node = pq.poll();
-			
-			for(int i=0;i<list.size();i++) {
-				if(list.get(i).from==node.to) {
-					
-				}
-			}
-			
-		}
-		
+		System.out.println(dist[D]);
 		
 		
 	}
