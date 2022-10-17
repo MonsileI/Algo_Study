@@ -6,6 +6,7 @@ import java.util.*;
 public class bj_9655_돌게임_Silver_5_2 {
 	
 	public static void main(String[] args)throws Exception {
+		
 		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		String answer = "";

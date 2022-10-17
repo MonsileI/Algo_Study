@@ -14,10 +14,9 @@ public class bj_9655_돌게임_Silver_5 {
 		if(N%3==1) check++;
 		
 		//홀수면 상근 짝수면 창영
-		
-		
+
 		System.out.println(check%2==1 ? "SK" : "CY");
-				
+		
 	}
 
 }
