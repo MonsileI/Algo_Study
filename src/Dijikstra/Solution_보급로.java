@@ -20,7 +20,6 @@ public class Solution_보급로 {
 			
 			map = new int[N][N];
 			
-			int answer = Integer.MAX_VALUE/2;
 			
 			for(int i=0;i<N;i++) {
 				String str = br.readLine();
@@ -76,7 +75,6 @@ public class Solution_보급로 {
 			
 			if(r==-1) return -1;
 
-			visited[r][c] = true;
 			if(r==N-1 && c==N-1) return minTime;
 			
 			
