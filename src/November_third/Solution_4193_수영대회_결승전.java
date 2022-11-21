@@ -71,7 +71,6 @@ public class Solution_4193_수영대회_결승전 {
 							visited[ni][nj] = true;
 							q.offer(new int[] {ni,nj,cnt+1});							
 						}else {
-
 							q.offer(new int[] {i,j,cnt+1});
 						}
 					}else {
