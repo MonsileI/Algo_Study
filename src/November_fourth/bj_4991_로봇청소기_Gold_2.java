@@ -107,6 +107,7 @@ public class bj_4991_로봇청소기_Gold_2 {
 			
 			if(N==0 && M==0) break;
 			
+			answer = 987654321;
 			map = new char[N][M];
 			dust = new ArrayList<>();
 			for(int i=0;i<N;i++) {
@@ -120,7 +121,6 @@ public class bj_4991_로봇청소기_Gold_2 {
 			size = dust.size();
 			visited = new boolean[size];
 			temp = new int[size];
-			answer = 987654321;
 			perm(0);
 		
 			sb.append(answer == 0 ? -1 : answer).append("\n");
