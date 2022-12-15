@@ -5,59 +5,82 @@ import java.io.*;
 
 public class test {
 
+	static class Node implements Comparable<Node>{
+		
+		int idx,dist;
+
+		public Node(int idx, int dist) {
+			super();
+			this.idx = idx;
+			this.dist = dist;
+		}
+
+		@Override
+		public int compareTo(Node o) {
+			if(this.dist < o.dist) return -1;
+			return 1;
+		}
+		
+		
+		
+		
+	}
+	
+	static ArrayList<ArrayList<Node>> list;
+	static int[]d = new int[50001];
+	static int n,m;
+	
 	public static void main(String[] args) throws Exception {
 		
 		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine()," ");
-		
-		int N = Integer.parseInt(st.nextToken());
-		int Q = Integer.parseInt(st.nextToken());
-		
 	
+		n = Integer.parseInt(st.nextToken());
+		m = Integer.parseInt(st.nextToken());
+		list = new ArrayList<>();
+		for(int i=0;i<=n;i++) list.add(new ArrayList<>());
 		
-		List<int[]>[] adj = new ArrayList[N+1];
-		
-		for(int i=0;i<N+1;i++) adj[i] = new ArrayList<>();
-		
-		
-		for(int i=0;i<N-1;i++) {
+		for(int i=0;i<m;i++) {
 			st = new StringTokenizer(br.readLine()," ");
-			int from = Integer.parseInt(st.nextToken());
-			int to = Integer.parseInt(st.nextToken());
-			int weight = Integer.parseInt(st.nextToken());
 			
-			adj[from].add(new int[] {to,weight});
-			adj[to].add(new int[] {from,weight});
-			
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+			int c =  Integer.parseInt(st.nextToken());
+				
+			list.get(a).add(new Node(b,c));
+			list.get(b).add(new Node(a,c));
 		}
-		StringBuilder sb = new StringBuilder();
-		for(int i=0;i<Q;i++) {
+		
+		Arrays.fill(d, 987654321);
+		
+		dijkstra();
+		
+		System.out.println(d[n]);
+	}
+	
+	static void dijkstra() {
+		
+		PriorityQueue<Node> pq = new PriorityQueue<>();
+		
+		pq.offer(new Node(1,0));
+		d[1] = 0;
+		
+		while(!pq.isEmpty()) {
+			Node node = pq.poll();
+			int dist = node.dist;
+			int now = node.idx;
 			
-			st = new StringTokenizer(br.readLine()," ");
-			int dist = Integer.parseInt(st.nextToken());
-			int num = Integer.parseInt(st.nextToken());
-			Queue<Integer> q = new ArrayDeque<>();
-			boolean[] visited = new boolean[N+1];
-			visited[num] = true;
-			int ans = 0 ;
-			q.offer(num);
-			while(!q.isEmpty()) {
-				
-				int c = q.poll();
-				
-				for(int [] a : adj[c]) {
-					if(!visited[a[0]] && a[1] >= dist) {
-						visited[a[0]] = true;
-						q.offer(a[0]);
-						ans++;
-					}
+			if(d[now]< dist) continue;
+			
+			for(int i=0;i<list.get(now).size();i++) {
+				int cost = d[now] + list.get(now).get(i).dist;
+				if(cost < d[list.get(now).get(i).idx]) {
+					d[list.get(now).get(i).idx] = cost;
+					pq.offer(new Node(list.get(now).get(i).idx, cost));
 				}
-				
 			}
-			
-			sb.append(ans).append("\n");
-			
 		}
-		System.out.println(sb.toString());
+		
+		
 	}
 }
