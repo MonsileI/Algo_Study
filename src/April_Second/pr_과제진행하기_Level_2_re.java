@@ -5,16 +5,13 @@ import java.util.*;
 
 public class pr_과제진행하기_Level_2_re {
 
-    static class Node implements Comparable<Node>{
+    static class Node{
 
         int idx;
         int start;
         int time;
 
-        @Override
-        public int compareTo(Node o) {
-            return start - o.start;
-        }
+
 
         public Node(int idx, int start, int time) {
             this.idx = idx;
@@ -45,8 +42,7 @@ public class pr_과제진행하기_Level_2_re {
                 int jjaturi = next - cur;
                 while(jjaturi > 0 && !remain.isEmpty()){
                     int del = remain.peek().time - jjaturi;
-                    remain.peek().time = Math.max(0, del);
-                    if(del == 0) {
+                    if(del < 0) {
                         jjaturi = -1 * del;
                         answer.add(plans[remain.pop().idx][0]);
                     }else break;

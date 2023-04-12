@@ -29,7 +29,7 @@ public class pr_과제진행하기_Level_2 {
         List<String> answer = new ArrayList<>();
         for(int i=0;i<plans.length;i++){
             int idx = i;
-            int start = Integer.parseInt(plans[i][1].split(":")[0]) + Integer.parseInt(plans[i][1].split(":")[1])*60;
+            int start = Integer.parseInt(plans[i][1].split(":")[0])*60 + Integer.parseInt(plans[i][1].split(":")[1]);
             int time = Integer.parseInt(plans[i][2]);
             sche[i] = new Subject(idx,start,time);
         }
@@ -40,33 +40,27 @@ public class pr_과제진행하기_Level_2 {
             int nextTime = sche[i+1].start;
 
             if(nowTime<=nextTime){
+                answer.add(plans[sche[i].idx][0]);
                 int remainTime = nextTime - nowTime;
-                while(remainTime > 0 && !remain.isEmpty()){
+                while(remainTime > 0 && !remain.isEmpty()) {
                     int del = remain.peek().time - remainTime;
-                    remain.peek().time = Math.max(0, del);
-                    if(del <= 0) {
+                    if (del < 0) {
                         remainTime = -1 * del;
                         answer.add(plans[remain.pop().idx][0]);
-                    }else break;
+                    } else break;
                 }
-
             }else {
-                sche[i].time = (nextTime - nowTime);
+                sche[i].time = (nowTime - nextTime);
                 remain.push(sche[i]);
 
             }
 
-
-
-
-
-
-
-
-
-
         }
 
+
+        answer.add(plans[sche[sche.length - 1].idx][0]);
+        while(!remain.isEmpty()) answer.add(plans[remain.pop().idx][0]);
+        for(String str : answer) System.out.println(str);
 
 
 
