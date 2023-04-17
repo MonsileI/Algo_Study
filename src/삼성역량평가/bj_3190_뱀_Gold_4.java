@@ -50,27 +50,36 @@ public class bj_3190_뱀_Gold_4 {
 
 
         int si = 0; int sj =0; int ti=0; int tj=0; int tRange=0; int head = 1; //처음 머리 위치, 꼬리 위치, 머리 방향(우측)
-        int[] info = new int[total+1]; //뱀이 이동시 어느 방향으로 움직였는지 알려주는 배열
+        int[] info = new int[10000]; //뱀이 이동시 어느 방향으로 움직였는지 알려주는 배열
         info[0] = 1; //처음엔 오른쪽으로 이동
         map[0][0] = 1; //처음 위치 1
         int answer = 0 ; //얼마나 이동했는지 초
         //이동해봅시다.
-        for(int [] i : map) System.out.println(Arrays.toString(i));
-        System.out.println("=========");
-        OuterLoop:
-        for(int o=0;o<order;o++){
-            Snake snake= sArr[o]; //뱀이 할 짓
-            int range = snake.range; //이동거리
-            int dir = snake.dir; //돌릴 위치
 
+        int o = 0;
+
+        OuterLoop:
+        while (true) {
+            int range = 0;
+            int dir = 0;
+            //다 돌아도 갈 곳이 있으면 이렇게 해주자.
+            if(o==order) {
+                 range =10000;
+                 dir = head;
+            }else {
+
+                 Snake snake = sArr[o++]; //뱀이 할 짓
+                 range = snake.range; //이동거리
+                 dir = snake.dir; //돌릴 위치
+            }
             for(int r=0;r<range;r++){
 
                 //이동할 다음 위치
                 int ni = si + move[head][0];
                 int nj = sj + move[head][1];
-                System.out.println(ni+" : "+nj);
+
                 //범위를 넘어가면 게임 오버
-                if(ni<0||nj<0||N-1<ni||N-1<nj){ break OuterLoop;}
+                if(ni<0||nj<0||N-1<ni||N-1<nj) break OuterLoop;
                 
                 //초 업데이트
                 answer++;
@@ -96,30 +105,20 @@ public class bj_3190_뱀_Gold_4 {
                     info[answer] = head; //이 초에는 이 방향으로 움직였음!
                     si = ni; sj = nj; //머리 위치 업데이트
                 //만약 자기 몸(1)을 만났으면 break;
-                }else { answer-- ; break OuterLoop; }
-
-                for(int[] i : map) System.out.println(Arrays.toString(i));
-                System.out.println("==========");
+                }else { answer--;break OuterLoop; }
 
 
             }
-            System.out.println(head+" 원래해드");
+
             //머리 이동
             if(dir==1) head = (head+1) %4;
             else head = (head+3) %4;
 
-            System.out.println(head+" 변경해드");
 
 
         }
 
-
-
-
-
-
-
-
+        System.out.println(++answer);
 
     }
 }
