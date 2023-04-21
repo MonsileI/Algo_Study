@@ -1,5 +1,6 @@
 package 삼성역량평가;
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.io.*;
 public class bj_3190_뱀_Gold_4 {
@@ -107,6 +108,8 @@ public class bj_3190_뱀_Gold_4 {
                 //만약 자기 몸(1)을 만났으면 break;
                 }else { answer--;break OuterLoop; }
 
+                for(int [] i : map) System.out.println(Arrays.toString(i));
+                System.out.println("===================");
 
             }
 
