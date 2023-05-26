@@ -69,7 +69,5 @@ public class pr_과제진행하기_Level_2 {
         }
         while(!stack.isEmpty()) answer[idx++] = stack.pop().name;
         System.out.println(Arrays.toString(answer));
-
-
     }
 }
