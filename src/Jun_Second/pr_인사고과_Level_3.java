@@ -7,29 +7,38 @@ public class pr_인사고과_Level_3 {
     public static void main(String[] args) {
 
         int[][] scores = {{2,2},{1,4},{3,2},{3,2},{2,1}};
-        int[] wanHo = scores[0];
-        // 근무태도점수 내림차순정렬. 근무태도 동점인 경우 동료평가점수 오름차순
-        Arrays.sort(scores, (a, b) -> a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]);
-        ArrayList<Integer> ranking = new ArrayList<>();
+        int answer = 0;
+        int size = scores.length;
+        int n = scores[0][0];
+        int m = scores[0][1];
 
-        int maxScore = 0;
-        for (int[] score : scores) {
-            // 내 앞에 동료평가점수가 나보다 높은사람이 한명이라도 있으면 탈락
-            // 근무태도 동점자의 경우 동료평가 오름차순 하였으므로 고려하지 않아도 됨
-            if (score[1] < maxScore) {
-                // 탈락대상
-                if (score.equals(wanHo))
-                    continue;
+        Arrays.sort(scores, (o1, o2) -> {
+            if (o1[0] == o2[0])  return o1[1] - o2[1];
+            return o2[0] - o1[0];
+        });
+        // 어차피 근무 태도는 내림차순으로 정렬되어 있으므로 동료 점수만 비교하면 됨
+        int maxScore = scores[0][1];
+
+        for(int i = 1; i<size; i++) {
+            if (scores[i][1] < maxScore) { // 인센티브를 받지 못하는 경우
+                if (scores[i][0] == n && scores[i][1] == m) {answer = -1; break;}//완호일 경우
+
+                scores[i][0] = -1;
+                scores[i][1] = -1;
             } else {
-                // 인센대상
-                ranking.add(score[0] + score[1]);
-                maxScore = Math.max(maxScore, score[1]);
+                maxScore = scores[i][1];
             }
         }
-
-        // 총점 내림차순 정렬. 1-index로 사용하기 위해 총점 최대값보다 높은 200001삽입
-        ranking.add(200001);
-        ranking.sort((a, b) -> b - a);
-        System.out.println(ranking.indexOf(wanHo[0] + wanHo[1]));
+        // Step 2
+        Arrays.sort(scores, (o1, o2) -> (o2[0] + o2[1]) - (o1[0] + o1[1]));
+        if(answer!=-1){
+            answer = 1;
+            // 완호보다 높은지만 체크하면 등수가 나온다
+            for(int i = 0; i<size; i++) {
+                if (scores[i][0] + scores[i][1] > n + m)  answer ++;
+                else break;
+            }
+        }
+        System.out.println(answer);
     }
 }
