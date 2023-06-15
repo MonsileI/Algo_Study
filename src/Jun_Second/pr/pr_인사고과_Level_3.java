@@ -1,4 +1,4 @@
-package Jun_Second;
+package Jun_Second.pr;
 
 import java.util.*;
 
