@@ -22,7 +22,6 @@ public class pr_인사고과_Level_3 {
         for(int i = 1; i<size; i++) {
             if (scores[i][1] < maxScore) { // 인센티브를 받지 못하는 경우
                 if (scores[i][0] == n && scores[i][1] == m) {answer = -1; break;}//완호일 경우
-
                 scores[i][0] = -1;
                 scores[i][1] = -1;
             } else {
