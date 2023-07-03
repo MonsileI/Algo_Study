@@ -4,32 +4,39 @@ import java.util.*;
 import java.io.*;
 
 public class test {
+    static int N,arr[];
 
-    static int []tmp = {1,2,3};
-    static int answer;
-    static void dfs(int t,int sum){
-
-        if(t==sum){
-            answer++;
-            return;
+    static int lower(int num){
+        int l = 0; int r = N;
+        while(l<r){
+            int mid = (l+r)/2;
+            if(num<=arr[mid]) r = mid;
+            else l = mid+1;
         }
-        if(t<sum) return;
-
-        for(int i=0;i<3;i++){
-            int newOne = sum + tmp[i];
-            dfs(t,newOne);
-        }
+        return l;
     }
-
-    public static void main(String[] args) throws Exception {
+    static int upper(int num){
+        int l = 0; int r = N;
+        while(l<r){
+            int mid = (l+r)/2;
+            if(num<arr[mid]) r = mid;
+            else l = mid+1;
+        }
+        return l;
+    }
+    public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int TC = Integer.parseInt(br.readLine());
+        N = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        arr = new int[N];
+        for(int i=0;i<N;i++) arr[i] = Integer.parseInt(st.nextToken());
+        Arrays.sort(arr);
+        int M = Integer.parseInt(br.readLine());
         StringBuilder sb = new StringBuilder();
-        for(int t=0;t<TC;t++){
-            answer = 0;
-            int num = Integer.parseInt(br.readLine());
-            dfs(num,0);
-            sb.append(answer).append("\n");
+        st = new StringTokenizer(br.readLine());
+        for(int i=0;i<M;i++){
+            int num = Integer.parseInt(st.nextToken());
+            sb.append(upper(num) - lower(num)).append(" ");
         }
         System.out.println(sb.toString());
     }
