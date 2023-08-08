@@ -13,7 +13,7 @@ public class bj_19598_최소회의실개수_Gold_5 {
             arr[i][0] = Integer.parseInt(st.nextToken());
             arr[i][1] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(arr,(o1,o2)-> o1[1]==o2[1] ? -o1[0] - o2[0] : o1[1] - o2[1]);
+        Arrays.sort(arr,(o1,o2)-> o1[0]==o2[0] ? -o1[1] - o2[1] : o1[0] - o2[0]);
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         pq.offer(arr[0][1]);
         for(int i=1;i<N;i++){
