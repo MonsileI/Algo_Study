@@ -13,6 +13,7 @@ public class pr_거스름돈_Level_3 {
                 dp[i][j] = dp[i-1][j];
                 if(m<=j) dp[i][j] += dp[i][j-m];
             }
+            System.out.println(Arrays.deepToString(dp));
         }
         System.out.println(dp[size][n]);
     }
