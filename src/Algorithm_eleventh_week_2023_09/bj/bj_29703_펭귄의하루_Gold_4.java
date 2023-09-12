@@ -18,7 +18,7 @@ public class bj_29703_펭귄의하루_Gold_4 {
 
         @Override
         public int compareTo(Node o) {
-            return check == o.check ? cnt - o.cnt : -(check - o.check);
+            return cnt == o.cnt ? -(check - o.check) : cnt - o.cnt;
         }
     }
 
@@ -49,6 +49,7 @@ public class bj_29703_펭귄의하루_Gold_4 {
                 if(map[i][j]=='H'){
                     ei = i;
                     ej = j;
+                    map[i][j] = 'E';
                 }
             }
         }
