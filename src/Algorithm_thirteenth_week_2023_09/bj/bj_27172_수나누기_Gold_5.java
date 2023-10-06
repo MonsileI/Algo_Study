@@ -1,4 +1,4 @@
-package Algorithm_thirteenth_week_2023_08.bj;
+package Algorithm_thirteenth_week_2023_09.bj;
 
 import java.util.*;
 import java.io.*;
