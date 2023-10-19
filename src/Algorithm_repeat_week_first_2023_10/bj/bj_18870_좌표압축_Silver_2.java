@@ -1,7 +1,5 @@
 package Algorithm_repeat_week_first_2023_10.bj;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.*;
 import java.io.*;
 public class bj_18870_좌표압축_Silver_2 {
@@ -14,7 +12,7 @@ public class bj_18870_좌표압축_Silver_2 {
         }
 
         @Override
-        public int compareTo(@NotNull Node o) {
+        public int compareTo( Node o) {
             return value - o.value;
         }
     }
