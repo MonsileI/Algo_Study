@@ -1,6 +1,5 @@
-package Algorithm_foureenth_week_2023_10.bj;
+package Algorithm_fourteenth_week_2023_10.bj;
 
-import java.util.*;
 import java.io.*;
 public class bj_2118_두개의탑_Gold_5 {
     public static void main(String[] args) throws Exception {

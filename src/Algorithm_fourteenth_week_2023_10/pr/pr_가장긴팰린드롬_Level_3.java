@@ -1,6 +1,5 @@
-package Algorithm_foureenth_week_2023_10.pr;
+package Algorithm_fourteenth_week_2023_10.pr;
 
-import java.util.*;
 public class pr_가장긴팰린드롬_Level_3 {
     public static void main(String[] args) {
         String s = "abcdcba";

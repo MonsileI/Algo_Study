@@ -1,4 +1,4 @@
-package Algorithm_foureenth_week_2023_10.bj;
+package Algorithm_fourteenth_week_2023_10.bj;
 import java.util.*;
 import java.io.*;
 public class bj_15724_주지수_Silver_1 {

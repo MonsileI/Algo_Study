@@ -1,4 +1,4 @@
-package Algorithm_foureenth_week_2023_10.pr;
+package Algorithm_fourteenth_week_2023_10.pr;
 
 import java.util.*;
 public class pr_GPS_Level_3 {

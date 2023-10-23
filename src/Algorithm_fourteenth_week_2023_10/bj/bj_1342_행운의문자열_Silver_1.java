@@ -1,4 +1,4 @@
-package Algorithm_foureenth_week_2023_10.bj;
+package Algorithm_fourteenth_week_2023_10.bj;
 
 import java.io.*;
 public class bj_1342_행운의문자열_Silver_1 {

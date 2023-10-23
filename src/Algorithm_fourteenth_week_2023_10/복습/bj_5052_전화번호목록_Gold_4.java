@@ -1,4 +1,4 @@
-package Algorithm_foureenth_week_2023_10.복습;
+package Algorithm_fourteenth_week_2023_10.복습;
 
 import java.util.*;
 import java.io.*;
