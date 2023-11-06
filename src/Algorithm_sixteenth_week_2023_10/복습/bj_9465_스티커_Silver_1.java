@@ -1,4 +1,4 @@
-package Algorithm_sixeenth_week_2023_10.복습;
+package Algorithm_sixteenth_week_2023_10.복습;
 import java.util.*;
 import java.io.*;
 public class bj_9465_스티커_Silver_1 {

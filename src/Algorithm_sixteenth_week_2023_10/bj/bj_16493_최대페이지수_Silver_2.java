@@ -1,4 +1,4 @@
-package Algorithm_sixeenth_week_2023_10.bj;
+package Algorithm_sixteenth_week_2023_10.bj;
 import java.util.*;
 import java.io.*;
 public class bj_16493_최대페이지수_Silver_2 {

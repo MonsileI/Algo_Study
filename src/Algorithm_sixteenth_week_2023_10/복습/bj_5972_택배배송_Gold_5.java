@@ -1,4 +1,4 @@
-package Algorithm_sixeenth_week_2023_10.복습;
+package Algorithm_sixteenth_week_2023_10.복습;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;

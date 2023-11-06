@@ -1,4 +1,4 @@
-package Algorithm_sixeenth_week_2023_10.bj;
+package Algorithm_sixteenth_week_2023_10.bj;
 import java.util.*;
 import java.io.*;
 public class bj_13565_침투_Silver_2 {

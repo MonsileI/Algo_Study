@@ -1,4 +1,4 @@
-package Algorithm_sixeenth_week_2023_10.st;
+package Algorithm_sixteenth_week_2023_10.st;
 import java.util.*;
 import java.io.*;
 public class st_징검다리_Level_3 {

@@ -1,4 +1,4 @@
-package Algorithm_sixeenth_week_2023_10.pr;
+package Algorithm_sixteenth_week_2023_10.pr;
 
 public class pr_정수삼각형_Level_3 {
     public static void main(String[] args) {

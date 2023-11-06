@@ -1,4 +1,4 @@
-package Algorithm_sixeenth_week_2023_10.bj;
+package Algorithm_sixteenth_week_2023_10.bj;
 import java.util.*;
 import java.io.*;
 public class bj_30408_춘배가선물하특별한하트_Gold_5 {

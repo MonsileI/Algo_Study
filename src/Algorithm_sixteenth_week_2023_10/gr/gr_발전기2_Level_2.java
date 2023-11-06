@@ -1,4 +1,4 @@
-package Algorithm_sixeenth_week_2023_10.gr;
+package Algorithm_sixteenth_week_2023_10.gr;
 import java.util.*;
 import java.io.*;
 public class gr_발전기2_Level_2 {

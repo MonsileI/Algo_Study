@@ -1,5 +1,4 @@
-package Algorithm_sixeenth_week_2023_10.bj;
-import java.util.*;
+package Algorithm_sixteenth_week_2023_10.bj;
 import java.io.*;
 public class bj_5430_AC_Gold_5 {
     public static void main(String[] args)throws Exception {

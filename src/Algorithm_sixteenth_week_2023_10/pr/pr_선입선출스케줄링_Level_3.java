@@ -1,6 +1,4 @@
-package Algorithm_sixeenth_week_2023_10.pr;
-
-import java.util.*;
+package Algorithm_sixteenth_week_2023_10.pr;
 
 public class pr_선입선출스케줄링_Level_3 {
     static int[]C;
