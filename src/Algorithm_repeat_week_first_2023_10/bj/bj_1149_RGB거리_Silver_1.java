@@ -6,7 +6,7 @@ public class bj_1149_RGB거리_Silver_1 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        int[][]map = new int[N][3];
+        int[][]dp = new int[N][3];
         StringTokenizer st = new StringTokenizer(br.readLine()," ");
         dp[0][0] = Integer.parseInt(st.nextToken());
         dp[0][1] = Integer.parseInt(st.nextToken());
