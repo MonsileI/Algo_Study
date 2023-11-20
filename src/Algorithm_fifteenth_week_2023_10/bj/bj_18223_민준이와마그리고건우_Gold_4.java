@@ -1,6 +1,5 @@
 package Algorithm_fifteenth_week_2023_10.bj;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.io.*;
@@ -15,7 +14,7 @@ public class bj_18223_민준이와마그리고건우_Gold_4 {
         }
 
         @Override
-        public int compareTo(@NotNull Node o) {
+        public int compareTo(Node o) {
             return weight - o.weight;
         }
     }

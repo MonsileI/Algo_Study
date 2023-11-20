@@ -1,5 +1,4 @@
 package Algorithm_fifteenth_week_2023_10.bj;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.io.*;
@@ -13,7 +12,7 @@ public class bj_16493_최대페이지수_Silver_2 {
         }
 
         @Override
-        public int compareTo(@NotNull Node o) {
+        public int compareTo(Node o) {
             return ((v/cnt) == (o.v/o.cnt)) ? -(cnt - o.cnt): -((v/cnt) - (o.v/o.cnt));
         }
 

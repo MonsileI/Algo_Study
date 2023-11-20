@@ -1,5 +1,4 @@
 package Algorithm_sixteenth_week_2023_10.복습;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 public class pr_택시합승요금_Level_3 {
@@ -13,7 +12,7 @@ public class pr_택시합승요금_Level_3 {
         }
 
         @Override
-        public int compareTo(@NotNull Node o) {
+        public int compareTo(Node o) {
             return weight - o.weight;
         }
     }

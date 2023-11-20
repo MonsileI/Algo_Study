@@ -1,5 +1,4 @@
 package Algorithm_sixteenth_week_2023_10.복습;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.io.*;
@@ -13,7 +12,7 @@ public class bj_5972_택배배송_Gold_5 {
         }
 
         @Override
-        public int compareTo(@NotNull Node o) {
+        public int compareTo(Node o) {
             return weight - o.weight;
         }
     }
