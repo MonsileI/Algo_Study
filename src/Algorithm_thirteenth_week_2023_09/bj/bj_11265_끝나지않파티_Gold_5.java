@@ -1,6 +1,5 @@
 package Algorithm_thirteenth_week_2023_09.bj;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.io.*;
@@ -14,7 +13,7 @@ public class bj_11265_끝나지않파티_Gold_5 {
         }
 
         @Override
-        public int compareTo(@NotNull Node o) {
+        public int compareTo( Node o) {
             return weight - o.weight;
         }
     }
