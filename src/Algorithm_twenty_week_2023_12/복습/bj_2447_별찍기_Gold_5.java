@@ -1,4 +1,4 @@
-package Algorithm_twelve_week_2023_12.복습;
+package Algorithm_twenty_week_2023_12.복습;
 import java.util.*;
 import java.io.*;
 public class bj_2447_별찍기_Gold_5 {

@@ -1,4 +1,4 @@
-package Algorithm_twelve_week_2023_12.bj;
+package Algorithm_twenty_week_2023_12.bj;
 import java.util.*;
 import java.io.*;
 public class bj_1197_최소스패닝트리_Gold_4 {

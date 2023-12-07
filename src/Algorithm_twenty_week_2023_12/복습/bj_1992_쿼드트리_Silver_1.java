@@ -1,4 +1,4 @@
-package Algorithm_twelve_week_2023_12.복습;
+package Algorithm_twenty_week_2023_12.복습;
 import java.util.*;
 import java.io.*;
 public class bj_1992_쿼드트리_Silver_1 {
